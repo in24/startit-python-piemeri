@@ -27,3 +27,16 @@ def sikteli(mape):
                     im.save(os.path.join(mape,outfile), im.format)
             except OSError:
                 print("cannot create thumbnail for", infile)
+
+
+def png(mape):
+    datnes = os.listdir(mape)
+    for infile in datnes:
+        f, e = os.path.splitext(infile)
+        outfile = f + ".jpg"
+        if infile != outfile:
+            try:
+                with Image.open(infile) as im:
+                    im.save(os.path.join(mape,outfile), im.format)
+            except OSError:
+                print("cannot convert", infile)
